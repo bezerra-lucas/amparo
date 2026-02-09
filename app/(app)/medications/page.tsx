@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
 import { Input } from '@/components/ui/input/input';
+import { Select } from '@/components/ui/select/select';
 import { Textarea } from '@/components/ui/textarea/textarea';
 
 export default async function MedicationsPage() {
@@ -67,9 +68,63 @@ export default async function MedicationsPage() {
       </section>
       <section>
         <h2>{s('stock')}</h2>
-        <Card className="space-y-2">
-          <p>{bp('catalog.title')}</p>
-        </Card>
+        <div className="grid gap-3">
+          <Card className="space-y-2">
+            <strong>{bp('stock.summary.title')}</strong>
+            <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
+              <div>
+                <strong>{bp('stock.summary.items')}:</strong> 24
+              </div>
+              <div>
+                <strong>{bp('stock.summary.lowStock')}:</strong> 2
+              </div>
+            </div>
+          </Card>
+
+          <Card className="space-y-3">
+            <strong>{bp('stock.title')}</strong>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <FormField id="stock-med" label={bp('stock.labels.medication')}>
+                <Select id="stock-med" defaultValue={samples('med1')}>
+                  <option value={samples('med1')}>{samples('med1')}</option>
+                  <option value={samples('med2')}>{samples('med2')}</option>
+                </Select>
+              </FormField>
+              <FormField
+                id="stock-type"
+                label={bp('stock.labels.movementType')}
+              >
+                <Select id="stock-type" defaultValue="out">
+                  <option value="in">{bp('stock.options.in')}</option>
+                  <option value="out">{bp('stock.options.out')}</option>
+                  <option value="adjustment">
+                    {bp('stock.options.adjustment')}
+                  </option>
+                </Select>
+              </FormField>
+              <FormField id="stock-qty" label={bp('stock.labels.quantity')}>
+                <Input id="stock-qty" defaultValue="1" inputMode="numeric" />
+              </FormField>
+              <FormField id="stock-lot" label={bp('stock.labels.lot')}>
+                <Input id="stock-lot" defaultValue="" />
+              </FormField>
+              <FormField id="stock-exp" label={bp('stock.labels.expiresOn')}>
+                <Input id="stock-exp" type="date" />
+              </FormField>
+              <FormField
+                id="stock-reason"
+                label={bp('stock.labels.reason')}
+                className="sm:col-span-2"
+              >
+                <Textarea id="stock-reason" defaultValue="" />
+              </FormField>
+              <div className="sm:col-span-2 flex flex-wrap gap-2">
+                <Button type="button">{uiButtons('register')}</Button>
+                <Button type="button">{uiButtons('cancel')}</Button>
+              </div>
+            </div>
+          </Card>
+        </div>
       </section>
       <section>
         <h2>{s('movements')}</h2>

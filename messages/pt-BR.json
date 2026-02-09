@@ -209,8 +209,49 @@
         }
       },
       "today": {
-        "body1": "Resumo do dia (turnos, checagens, movimentos, etc.).",
-        "body2": "Timeline simplificada (placeholder)."
+        "shift": {
+          "title": "Turno em andamento",
+          "labels": {
+            "shift": "Turno",
+            "lead": "Responsavel",
+            "team": "Equipe",
+            "activeResidents": "Residentes ativos"
+          }
+        },
+        "mar": {
+          "title": "Checagem de medicacao (hoje)",
+          "labels": {
+            "time": "Horario",
+            "pending": "Pendentes",
+            "done": "Feitas"
+          }
+        },
+        "nursing": {
+          "title": "Relatorios de enfermagem (hoje)",
+          "labels": {
+            "day": "Turno Dia",
+            "night": "Turno Noite"
+          },
+          "statuses": {
+            "done": "Registrado",
+            "missing": "Pendente"
+          }
+        },
+        "activity": {
+          "title": "Atividade recente",
+          "labels": {
+            "when": "Quando",
+            "who": "Quem",
+            "what": "O que"
+          },
+          "events": {
+            "e1": "Registrou evolucao (Turno Dia) para {resident}",
+            "e2": "Marcou medicacao como administrada ({time}) para {resident}",
+            "e3": "Registrou saida de estoque para {med}",
+            "e4": "Atualizou escala ({shift}) para {staff}",
+            "e5": "Registrou pagamento de mensalidade para {resident}"
+          }
+        }
       }
     },
     "residents": {
@@ -288,6 +329,27 @@
         "type": "Tipo",
         "qty": "Quantidade",
         "when": "Quando"
+      },
+      "stock": {
+        "title": "Registrar movimentacao",
+        "labels": {
+          "medication": "Medicacao",
+          "movementType": "Tipo",
+          "quantity": "Quantidade",
+          "lot": "Lote",
+          "expiresOn": "Validade",
+          "reason": "Motivo"
+        },
+        "options": {
+          "in": "Entrada",
+          "out": "Saida",
+          "adjustment": "Ajuste"
+        },
+        "summary": {
+          "title": "Resumo",
+          "items": "Itens cadastrados",
+          "lowStock": "Em alerta"
+        }
       }
     },
     "schedule": {
@@ -303,7 +365,18 @@
       },
       "close": {
         "title": "Fechamento mensal",
-        "body": "Resumo por profissional (placeholder)."
+        "labels": {
+          "month": "Mes",
+          "staff": "Profissional",
+          "totalShifts": "Plantoes",
+          "totalAmount": "Total",
+          "status": "Status"
+        },
+        "actions": {
+          "generate": "Gerar plantoes",
+          "close": "Fechar mes",
+          "markPaid": "Marcar como pago"
+        }
       }
     },
     "admin": {
