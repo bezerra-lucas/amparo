@@ -1,0 +1,334 @@
+{
+  "app": {
+    "name": "Amparo"
+  },
+  "nav": {
+    "dashboard": "Painel",
+    "residents": "Residentes",
+    "medications": "Medicacoes",
+    "schedule": "Escala",
+    "admin": "Admin",
+    "adminUsers": "Usuarios",
+    "adminAudit": "Auditoria",
+    "accessPending": "Acesso pendente"
+  },
+  "common": {
+    "blueprint": "Blueprint",
+    "navigation": "Navegacao",
+    "sections": "Secoes",
+    "placeholders": "Placeholders",
+    "appNavAriaLabel": "Navegacao principal"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Painel",
+      "subtitle": "Blueprint da tela de alertas e visao geral",
+      "sections": {
+        "alerts": "Alertas",
+        "today": "Hoje",
+        "quickActions": "Acoes rapidas"
+      }
+    },
+    "residents": {
+      "title": "Residentes",
+      "subtitle": "Blueprint da listagem de residentes",
+      "sampleResident": "Abrir residente (exemplo)",
+      "sections": {
+        "filters": "Filtros",
+        "list": "Lista",
+        "actions": "Acoes"
+      }
+    },
+    "residentDetails": {
+      "title": "Residente",
+      "subtitle": "Blueprint do detalhe do residente",
+      "backToResidents": "Voltar para Residentes",
+      "tabs": {
+        "admission": "Admissao",
+        "supplies": "Insumos",
+        "nursing": "Evolucao",
+        "prescriptions": "Prescricoes",
+        "mar": "Checagem hoje",
+        "billing": "Financeiro"
+      }
+    },
+    "medications": {
+      "title": "Medicacoes",
+      "subtitle": "Blueprint de cadastro e estoque",
+      "sections": {
+        "catalog": "Catalogo",
+        "stock": "Estoque",
+        "movements": "Movimentacoes"
+      }
+    },
+    "schedule": {
+      "title": "Escala",
+      "subtitle": "Blueprint da escala por dia e turno",
+      "sections": {
+        "calendar": "Calendario",
+        "dayNight": "Dia / Noite",
+        "assignments": "Designacoes",
+        "closeMonth": "Fechamento mensal"
+      }
+    },
+    "adminUsers": {
+      "title": "Usuarios",
+      "subtitle": "Blueprint de gestao de acesso e papeis",
+      "sections": {
+        "list": "Lista",
+        "roles": "Papeis",
+        "invite": "Convite/ativacao"
+      }
+    },
+    "adminAudit": {
+      "title": "Auditoria",
+      "subtitle": "Blueprint da linha do tempo de alteracoes",
+      "sections": {
+        "filters": "Filtros",
+        "timeline": "Linha do tempo"
+      }
+    },
+    "accessPending": {
+      "title": "Acesso pendente",
+      "subtitle": "Blueprint para usuario autenticado sem permissao",
+      "sections": {
+        "status": "Status",
+        "instructions": "Instrucoes"
+      }
+    },
+    "auth": {
+      "signInTitle": "Entrar",
+      "signUpTitle": "Criar conta"
+    },
+    "notFound": {
+      "title": "Pagina nao encontrada",
+      "subtitle": "Blueprint de erro 404"
+    }
+  },
+  "placeholders": {
+    "searchInput": "[input] busca",
+    "filters": "[chips] filtros",
+    "table": "[tabela/cards] conteudo",
+    "primaryButton": "[botao] acao principal",
+    "secondaryButton": "[botao] acao secundaria",
+    "form": "[form] campos",
+    "tabs": "[tabs] secoes",
+    "timeline": "[timeline] eventos"
+  },
+  "ui": {
+    "buttons": {
+      "new": "Novo",
+      "save": "Salvar",
+      "cancel": "Cancelar",
+      "open": "Abrir",
+      "register": "Registrar",
+      "given": "Administrado",
+      "notGiven": "Nao administrado"
+    },
+    "badges": {
+      "alert": "Alerta",
+      "late": "Atraso",
+      "info": "Info"
+    },
+    "fields": {
+      "search": "Busca",
+      "residentName": "Nome do residente",
+      "admissionDate": "Data de admissao",
+      "dependencyLevel": "Grau de dependencia",
+      "dietRestrictions": "Restricoes alimentares",
+      "mobility": "Mobilidade",
+      "notes": "Observacoes",
+      "shift": "Turno",
+      "date": "Data",
+      "role": "Papel",
+      "status": "Status"
+    },
+    "options": {
+      "shiftDay": "Dia",
+      "shiftNight": "Noite",
+      "roleAdmin": "Admin",
+      "roleNurse": "Enfermeira",
+      "roleCaregiver": "Cuidador",
+      "roleCollaborator": "Colaborador",
+      "dependency1": "I",
+      "dependency2": "II",
+      "dependency3": "III",
+      "statusPending": "Pendente",
+      "statusConfirmed": "Confirmado",
+      "statusPaid": "Pago",
+      "auditInsert": "Insercao",
+      "auditUpdate": "Atualizacao",
+      "auditSoftDelete": "Remocao"
+    },
+    "tables": {
+      "residents": "Residentes",
+      "nursingReports": "Evolucao"
+    },
+    "samples": {
+      "resident1": "Residente Exemplo 01",
+      "resident2": "Residente Exemplo 02",
+      "resident3": "Residente Exemplo 03",
+      "room101": "101",
+      "bedA": "A",
+      "dependency2": "II",
+      "dietSoft": "Pastosa",
+      "mobilityWalker": "Andador",
+      "qty12": "12",
+      "qty6": "6",
+      "time0800": "08:00",
+      "time1400": "14:00",
+      "time2000": "20:00",
+      "rxTimes": "08:00, 14:00, 20:00",
+      "billingDue": "10/02",
+      "billingAmount": "1500",
+      "amountDay": "200",
+      "amountNight": "250",
+      "movementIn": "+10",
+      "movementOut": "-1",
+      "med1": "Medicacao Exemplo A",
+      "med2": "Medicacao Exemplo B",
+      "staff1": "Profissional Exemplo 01",
+      "staff2": "Profissional Exemplo 02",
+      "user1": "usuario.exemplo@ilpi.com"
+    }
+  },
+  "blueprints": {
+    "dashboard": {
+      "alerts": {
+        "lowStock": {
+          "title": "Estoque baixo",
+          "body": "{med} abaixo do minimo."
+        },
+        "pendingChecks": {
+          "title": "Checagens pendentes",
+          "body": "Checagens de {time} pendentes para {count} residentes."
+        },
+        "billing": {
+          "title": "Financeiro",
+          "body": "{count} parcelas vencendo nesta semana."
+        }
+      },
+      "today": {
+        "body1": "Resumo do dia (turnos, checagens, movimentos, etc.).",
+        "body2": "Timeline simplificada (placeholder)."
+      }
+    },
+    "residents": {
+      "filters": {
+        "active": "Ativos",
+        "inactive": "Inativos",
+        "discharged": "Alta",
+        "deceased": "Obito"
+      },
+      "list": {
+        "card": {
+          "room": "Quarto",
+          "bed": "Leito",
+          "dependency": "Dependencia",
+          "diet": "Dieta",
+          "mobility": "Mobilidade"
+        }
+      }
+    },
+    "residentDetails": {
+      "summary": {
+        "title": "Resumo",
+        "id": "ID",
+        "status": "Status",
+        "roomBed": "Quarto / Leito",
+        "active": "Ativo",
+        "inactive": "Inativo"
+      },
+      "supplies": {
+        "itemName": "Item",
+        "balance": "Saldo",
+        "min": "Minimo",
+        "sampleItem1": "Fralda",
+        "sampleItem2": "Sabonete"
+      },
+      "prescriptions": {
+        "medication": "Medicacao",
+        "dose": "Dose",
+        "route": "Via",
+        "times": "Horarios",
+        "sampleDose": "1 comp",
+        "sampleRoute": "VO"
+      },
+      "mar": {
+        "time": "Horario",
+        "status": "Status",
+        "pending": "Pendente",
+        "done": "Feito",
+        "notGiven": "Nao administrado"
+      },
+      "billing": {
+        "competence": "Competencia",
+        "due": "Vencimento",
+        "amount": "Valor",
+        "status": "Status",
+        "open": "Em aberto",
+        "paid": "Pago",
+        "late": "Atrasado"
+      }
+    },
+    "medications": {
+      "form": {
+        "title": "Novo medicamento",
+        "name": "Nome",
+        "form": "Forma",
+        "notes": "Observacoes"
+      },
+      "catalog": {
+        "title": "Catalogo",
+        "stock": "Estoque",
+        "min": "Minimo"
+      },
+      "movements": {
+        "title": "Movimentacoes",
+        "type": "Tipo",
+        "qty": "Quantidade",
+        "when": "Quando"
+      }
+    },
+    "schedule": {
+      "filters": {
+        "date": "Data",
+        "shift": "Turno"
+      },
+      "assignment": {
+        "title": "Designacao",
+        "staff": "Profissional",
+        "amount": "Valor",
+        "status": "Status"
+      },
+      "close": {
+        "title": "Fechamento mensal",
+        "body": "Resumo por profissional (placeholder)."
+      }
+    },
+    "admin": {
+      "users": {
+        "listTitle": "Lista de usuarios",
+        "email": "Email",
+        "role": "Papel",
+        "active": "Ativo"
+      },
+      "audit": {
+        "event": "Evento",
+        "actor": "Usuario",
+        "table": "Tabela",
+        "action": "Acao"
+      }
+    },
+    "accessPending": {
+      "status": {
+        "title": "Aguardando liberacao",
+        "body": "Este usuario autenticado ainda nao possui permissao no sistema."
+      },
+      "instructions": {
+        "title": "O que fazer",
+        "body": "Peca para um admin atribuir um papel (admin/enfermeira/cuidador/colaborador)."
+      }
+    }
+  }
+}
