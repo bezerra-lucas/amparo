@@ -11,7 +11,6 @@ import { Input } from '@/components/ui/input/input';
 export default async function ResidentsPage() {
   const t = await getTranslations('pages.residents');
   const s = await getTranslations('pages.residents.sections');
-  const c = await getTranslations('common');
   const nav = await getTranslations('nav');
   const uiButtons = await getTranslations('ui.buttons');
   const uiFields = await getTranslations('ui.fields');
@@ -24,22 +23,6 @@ export default async function ResidentsPage() {
   return (
     <main>
       <PageHeader title={t('title')} subtitle={t('subtitle')} />
-
-      <section>
-        <h2>{c('navigation')}</h2>
-        <ol className="space-y-1">
-          <li>
-            <Link className="underline" href="/dashboard">
-              {nav('dashboard')}
-            </Link>
-          </li>
-          <li>
-            <Link className="underline" href={`/residents/${sampleResidentId}`}>
-              {t('sampleResident')}
-            </Link>
-          </li>
-        </ol>
-      </section>
 
       <section>
         <h2>{s('filters')}</h2>
@@ -110,8 +93,8 @@ export default async function ResidentsPage() {
         <h2>{s('actions')}</h2>
         <div className="flex flex-wrap gap-2">
           <Button type="button">{uiButtons('new')}</Button>
-          <Link className="underline" href="/dashboard">
-            {nav('dashboard')}
+          <Link className="underline" href={`/residents/${sampleResidentId}`}>
+            {t('sampleResident')}
           </Link>
         </div>
       </section>

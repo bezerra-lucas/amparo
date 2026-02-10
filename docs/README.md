@@ -13,6 +13,7 @@ Este diretório documenta o planejamento e as decisões do "Sistema de Gestão A
 7. `docs/06-roadmap-fases.md`
 8. `docs/07-padroes-de-implementacao-next-supabase.md`
 9. `docs/08-auditoria-e-timeline.md`
+10. `docs/09-principios-de-design.md`
 
 ## Princípios do produto
 

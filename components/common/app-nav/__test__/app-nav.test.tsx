@@ -5,6 +5,7 @@ describe('AppNav', () => {
   it('renders translated links', () => {
     render(<AppNav />);
 
+    expect(screen.getByText('nav.shift')).toBeInTheDocument();
     expect(screen.getByText('nav.dashboard')).toBeInTheDocument();
     expect(screen.getByText('nav.residents')).toBeInTheDocument();
     expect(screen.getByText('nav.medications')).toBeInTheDocument();

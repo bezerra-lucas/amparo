@@ -11,6 +11,11 @@ export function AppNav() {
     <nav aria-label={c('appNavAriaLabel')}>
       <ul className="flex flex-wrap gap-3">
         <li>
+          <Link className="underline" href="/shift">
+            {t('shift')}
+          </Link>
+        </li>
+        <li>
           <Link className="underline" href="/dashboard">
             {t('dashboard')}
           </Link>

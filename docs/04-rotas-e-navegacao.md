@@ -15,6 +15,8 @@ Públicas:
 
 Protegidas:
 
+- `/shift` (tela inicial operacional para enfermagem/cuidadora)
+- `/shift/[id]` (tela operacional do residente no turno)
 - `/dashboard`
 - `/residents`
 - `/residents/[id]`

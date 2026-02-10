@@ -4,6 +4,7 @@
   },
   "nav": {
     "dashboard": "Painel",
+    "shift": "Turno",
     "residents": "Residentes",
     "medications": "Medicacoes",
     "schedule": "Escala",
@@ -27,6 +28,18 @@
         "alerts": "Alertas",
         "today": "Hoje",
         "quickActions": "Acoes rapidas"
+      }
+    },
+    "shift": {
+      "title": "Turno",
+      "subtitle": "Tela inicial para enfermagem/cuidadora (selecionar residente e operar o turno)",
+      "sections": {
+        "mode": "Perfil (preview)",
+        "residentSelect": "Selecionar residente",
+        "residentSummary": "Resumo do residente",
+        "mar": "Checagem de medicacao (MAR)",
+        "shiftReport": "Relatorio do turno",
+        "prescriptions": "Prescricoes"
       }
     },
     "residents": {
@@ -120,6 +133,7 @@
       "new": "Novo",
       "save": "Salvar",
       "cancel": "Cancelar",
+      "back": "Voltar",
       "open": "Abrir",
       "register": "Registrar",
       "given": "Administrado",
@@ -401,6 +415,55 @@
       "instructions": {
         "title": "O que fazer",
         "body": "Peca para um admin atribuir um papel (admin/enfermeira/cuidador/colaborador)."
+      }
+    },
+    "shift": {
+      "mode": {
+        "label": "Atuando como",
+        "nurse": "Enfermeira (pode alterar prescricoes)",
+        "caregiver": "Cuidadora (so aplica)"
+      },
+      "residentList": {
+        "search": "Buscar residente",
+        "selected": "OK"
+      },
+      "summary": {
+        "roomBed": "Quarto / Leito",
+        "dependency": "Dependencia",
+        "diet": "Dieta",
+        "mobility": "Mobilidade",
+        "alerts": "Alertas",
+        "badges": {
+          "lowStock": "Estoque baixo",
+          "lateCheck": "Checagem atrasada",
+          "allergy": "Alergia (exemplo)"
+        }
+      },
+      "mar": {
+        "time": "Horario",
+        "med": "Medicacao",
+        "dose": "Dose",
+        "actions": {
+          "editPrescription": "Editar prescricao",
+          "addPrescription": "Nova prescricao"
+        },
+        "statuses": {
+          "pending": "Pendente",
+          "given": "Administrado",
+          "notGiven": "Nao administrado"
+        }
+      },
+      "report": {
+        "date": "Data",
+        "shift": "Turno",
+        "body": "Texto do relatorio",
+        "actions": {
+          "save": "Salvar relatorio"
+        },
+        "helper": {
+          "nurse": "Enfermeira registra o relatorio do turno.",
+          "caregiver": "Cuidadora visualiza o relatorio (somente leitura)."
+        }
       }
     }
   }
