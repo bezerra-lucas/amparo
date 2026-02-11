@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { DetailsSection } from '@/components/common/details-section/details-section';
 import { FormField } from '@/components/common/form-field/form-field';
 import { PageHeader } from '@/components/common/page-header/page-header';
+import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
 import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
@@ -57,7 +58,7 @@ export default async function ResidentDetailsPage({
         <h2>{bpSummary('title')}</h2>
         <Card className="space-y-2">
           <div className="flex items-center justify-between gap-2">
-            <strong>{residentName}</strong>
+            <ResidentIdentity name={residentName} size="lg" />
             <Badge variant="success">{bpSummary('active')}</Badge>
           </div>
           <div className="grid gap-1 text-sm text-slate-800">

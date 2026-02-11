@@ -3,12 +3,16 @@ export function PageHeader({
   subtitle
 }: {
   title: string;
-  subtitle?: string;
+  subtitle?: React.ReactNode;
 }) {
   return (
-    <header className="space-y-1">
+    <header className="space-y-2">
       <h1>{title}</h1>
-      {subtitle ? <p>{subtitle}</p> : null}
+      {subtitle ? (
+        <p className="max-w-3xl text-sm text-ink-muted sm:text-base">
+          {subtitle}
+        </p>
+      ) : null}
     </header>
   );
 }

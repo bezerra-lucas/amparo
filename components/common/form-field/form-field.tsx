@@ -18,7 +18,7 @@ export function FormField({
     <div className={cn('space-y-1', className)}>
       <Label htmlFor={id}>{label}</Label>
       {children}
-      {hint ? <p className="text-xs text-slate-600">{hint}</p> : null}
+      {hint ? <p className="text-xs text-ink-muted">{hint}</p> : null}
     </div>
   );
 }

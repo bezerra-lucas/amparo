@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 
 import { PageHeader } from '@/components/common/page-header/page-header';
+import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
 import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
@@ -135,8 +136,13 @@ export default async function DashboardPage() {
                     {bpToday('nursing.statuses.done')}
                   </Badge>
                 </div>
-                <p className="text-xs">
-                  {samples('resident1')} - {samples('staff1')}
+                <p className="flex items-center gap-1 text-xs">
+                  <ResidentIdentity
+                    name={samples('resident1')}
+                    size="md"
+                    className="gap-1"
+                  />
+                  <span>- {samples('staff1')}</span>
                 </p>
               </Card>
               <Card className="space-y-1">
@@ -146,7 +152,13 @@ export default async function DashboardPage() {
                     {bpToday('nursing.statuses.missing')}
                   </Badge>
                 </div>
-                <p className="text-xs">{samples('resident2')}</p>
+                <p className="text-xs">
+                  <ResidentIdentity
+                    name={samples('resident2')}
+                    size="md"
+                    className="gap-1"
+                  />
+                </p>
               </Card>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -168,10 +180,19 @@ export default async function DashboardPage() {
                   {samples('user1')}
                 </div>
                 <div className="text-sm">
-                  <strong>{bpToday('activity.labels.what')}:</strong>{' '}
-                  {bpToday('activity.events.e1', {
-                    resident: samples('resident1')
-                  })}
+                  <span className="flex items-start gap-1">
+                    <ResidentIdentity
+                      name={samples('resident1')}
+                      size="md"
+                      className="gap-1"
+                    />
+                    <span>
+                      <strong>{bpToday('activity.labels.what')}:</strong>{' '}
+                      {bpToday('activity.events.e1', {
+                        resident: samples('resident1')
+                      })}
+                    </span>
+                  </span>
                 </div>
               </Card>
               <Card className="space-y-1">
@@ -183,11 +204,20 @@ export default async function DashboardPage() {
                   {samples('user1')}
                 </div>
                 <div className="text-sm">
-                  <strong>{bpToday('activity.labels.what')}:</strong>{' '}
-                  {bpToday('activity.events.e2', {
-                    time: samples('time0800'),
-                    resident: samples('resident1')
-                  })}
+                  <span className="flex items-start gap-1">
+                    <ResidentIdentity
+                      name={samples('resident1')}
+                      size="md"
+                      className="gap-1"
+                    />
+                    <span>
+                      <strong>{bpToday('activity.labels.what')}:</strong>{' '}
+                      {bpToday('activity.events.e2', {
+                        time: samples('time0800'),
+                        resident: samples('resident1')
+                      })}
+                    </span>
+                  </span>
                 </div>
               </Card>
               <Card className="space-y-1">
@@ -230,10 +260,19 @@ export default async function DashboardPage() {
                   {samples('user1')}
                 </div>
                 <div className="text-sm">
-                  <strong>{bpToday('activity.labels.what')}:</strong>{' '}
-                  {bpToday('activity.events.e5', {
-                    resident: samples('resident2')
-                  })}
+                  <span className="flex items-start gap-1">
+                    <ResidentIdentity
+                      name={samples('resident2')}
+                      size="md"
+                      className="gap-1"
+                    />
+                    <span>
+                      <strong>{bpToday('activity.labels.what')}:</strong>{' '}
+                      {bpToday('activity.events.e5', {
+                        resident: samples('resident2')
+                      })}
+                    </span>
+                  </span>
                 </div>
               </Card>
             </div>

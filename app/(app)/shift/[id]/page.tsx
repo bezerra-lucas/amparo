@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { DetailsSection } from '@/components/common/details-section/details-section';
 import { FormField } from '@/components/common/form-field/form-field';
 import { PageHeader } from '@/components/common/page-header/page-header';
+import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
 import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
@@ -53,12 +54,15 @@ export default async function ShiftResidentPage({
 
   return (
     <main>
-      <PageHeader title={t('title')} subtitle={residentName} />
+      <PageHeader
+        title={t('title')}
+        subtitle={<ResidentIdentity name={residentName} size="md" />}
+      />
 
       <section className="space-y-3">
         <Card className="space-y-2">
           <div className="flex items-center justify-between gap-2">
-            <strong>{residentName}</strong>
+            <ResidentIdentity name={residentName} size="lg" />
             <Badge variant="muted">
               {role === 'nurse'
                 ? uiOptions('roleNurse')
@@ -110,23 +114,43 @@ export default async function ShiftResidentPage({
               samples('time2000')
             ].map((time, idx) => (
               <Card key={time} className="space-y-2">
+                <input
+                  id={`mar-administration-${idx}`}
+                  type="checkbox"
+                  defaultChecked={idx === 2}
+                  aria-label={`${uiFields('status')} ${time}`}
+                  className="peer sr-only"
+                />
                 <div className="flex items-center justify-between gap-2">
-                  <strong>
+                  <strong className="transition-opacity duration-200 peer-checked:opacity-85 peer-checked:line-through">
                     {bp('mar.time')}: {time}
                   </strong>
-                  <Badge
-                    variant={
-                      idx === 0 ? 'danger' : idx === 1 ? 'muted' : 'success'
-                    }
-                  >
-                    {idx === 0
-                      ? bp('mar.statuses.pending')
-                      : idx === 1
-                        ? bp('mar.statuses.notGiven')
-                        : bp('mar.statuses.given')}
-                  </Badge>
+                  <div className="flex items-center gap-2">
+                    <Badge
+                      variant={
+                        idx === 0 ? 'danger' : idx === 1 ? 'muted' : 'success'
+                      }
+                    >
+                      {idx === 0
+                        ? bp('mar.statuses.pending')
+                        : idx === 1
+                          ? bp('mar.statuses.notGiven')
+                          : bp('mar.statuses.given')}
+                    </Badge>
+                    <label
+                      htmlFor={`mar-administration-${idx}`}
+                      className="inline-flex cursor-pointer items-center rounded-md border border-brand-200 bg-brand-50/60 p-1.5 transition-colors duration-200 hover:border-brand-300 hover:bg-brand-100/70 peer-focus-visible:ring-2 peer-focus-visible:ring-brand-300/80"
+                    >
+                      <span
+                        aria-hidden
+                        className="inline-flex h-5 w-5 items-center justify-center rounded-sm border border-brand-300 bg-canvas shadow-sm transition-colors duration-200 peer-checked:border-brand-700 peer-checked:bg-brand-600"
+                      >
+                        <span className="h-2.5 w-2.5 rounded-[2px] bg-brand-50 opacity-0 transition-opacity duration-200 peer-checked:opacity-100" />
+                      </span>
+                    </label>
+                  </div>
                 </div>
-                <div className="grid gap-2 text-sm text-slate-800 sm:grid-cols-3">
+                <div className="grid gap-2 text-sm text-slate-800 transition-opacity duration-200 peer-checked:opacity-85 peer-checked:line-through sm:grid-cols-3">
                   <div>
                     <strong>{bp('mar.med')}:</strong> {samples('med1')}
                   </div>
@@ -142,20 +166,14 @@ export default async function ShiftResidentPage({
                         : bp('mar.statuses.given')}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  <Button type="button">{uiButtons('given')}</Button>
-                  <Button type="button">{uiButtons('notGiven')}</Button>
-                  {isNurse ? (
-                    <Button type="button">
-                      {bp('mar.actions.editPrescription')}
-                    </Button>
-                  ) : null}
-                </div>
               </Card>
             ))}
 
             {isNurse ? (
               <div className="flex flex-wrap gap-2">
+                <Button type="button" variant="secondary">
+                  {bp('mar.actions.editPrescription')}
+                </Button>
                 <Button type="button">
                   {bp('mar.actions.addPrescription')}
                 </Button>

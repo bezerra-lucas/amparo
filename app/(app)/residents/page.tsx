@@ -3,6 +3,7 @@ import Link from 'next/link';
 
 import { PageHeader } from '@/components/common/page-header/page-header';
 import { FormField } from '@/components/common/form-field/form-field';
+import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
 import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
@@ -53,7 +54,7 @@ export default async function ResidentsPage() {
           ].map((name, idx) => (
             <Card key={name} className="space-y-2">
               <div className="flex items-center justify-between gap-2">
-                <strong>{name}</strong>
+                <ResidentIdentity name={name} size="lg" />
                 <Badge variant={idx === 0 ? 'success' : 'muted'}>
                   {bpFilters(idx === 0 ? 'active' : 'inactive')}
                 </Badge>

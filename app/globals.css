@@ -2,19 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Minimal baseline: spacing + readable typography (no theme) */
 html,
 body {
   height: 100%;
 }
 
+:root {
+  --brand-50: 250 244 239;
+  --brand-100: 241 230 220;
+  --brand-200: 224 204 188;
+  --brand-300: 201 171 149;
+  --brand-400: 176 138 108;
+  --brand-500: 146 101 69;
+  --brand-600: 113 69 40;
+  --brand-700: 91 54 31;
+  --brand-800: 70 42 25;
+  --brand-900: 49 29 18;
+
+  --surface-canvas: 255 252 248;
+  --surface-card: 255 254 252;
+  --surface-muted: 248 241 235;
+
+  --line-default: 221 203 187;
+  --line-strong: 190 163 141;
+
+  --text-strong: 56 37 27;
+  --text-muted: 106 84 69;
+  --text-subtle: 138 115 96;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @layer base {
   body {
-    @apply bg-white text-slate-900 antialiased;
+    @apply bg-canvas text-ink-strong antialiased;
+    background-image:
+      radial-gradient(
+        circle at 5% -10%,
+        rgb(var(--brand-300) / 0.38),
+        transparent 34%
+      ),
+      radial-gradient(
+        circle at 90% 0%,
+        rgb(var(--brand-200) / 0.4),
+        transparent 29%
+      ),
+      linear-gradient(
+        180deg,
+        rgb(var(--surface-canvas)) 0%,
+        rgb(var(--surface-muted)) 100%
+      );
+    background-attachment: fixed;
   }
 
   main {
-    @apply p-4;
+    @apply py-6;
+    animation: fade-up 360ms ease-out;
   }
 
   section {
@@ -22,15 +75,32 @@ body {
   }
 
   h1 {
-    @apply text-xl font-semibold;
+    @apply font-heading text-2xl font-semibold tracking-tight text-ink-strong sm:text-3xl;
   }
 
   h2 {
-    @apply text-base font-semibold;
+    @apply font-heading text-lg font-semibold tracking-tight text-ink-strong;
   }
 
   p {
-    @apply text-sm text-slate-700;
+    @apply text-sm leading-6 text-ink-muted;
+  }
+
+  strong {
+    @apply text-ink-strong;
+  }
+
+  a {
+    @apply text-brand-700 transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply text-brand-800;
+  }
+
+  ::selection {
+    background: rgb(var(--brand-200));
+    color: rgb(var(--brand-900));
   }
 
   ol,

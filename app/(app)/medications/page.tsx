@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input/input';
 import { Select } from '@/components/ui/select/select';
 import { Textarea } from '@/components/ui/textarea/textarea';
 
-export default async function MedicationsPage() {
+export default async function StockPage() {
   const t = await getTranslations('pages.medications');
   const s = await getTranslations('pages.medications.sections');
   const uiButtons = await getTranslations('ui.buttons');
