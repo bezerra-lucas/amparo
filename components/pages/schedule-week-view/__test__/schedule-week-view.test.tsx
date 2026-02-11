@@ -64,7 +64,7 @@ describe('ScheduleWeekView', () => {
     const nurseLegend = screen.getByText('Enfermeira');
     const caregiverLegend = screen.getByText('Cuidador');
 
-    expect(nurseLegend.className).toContain('border-sky-300');
-    expect(caregiverLegend.className).toContain('border-emerald-300');
+    expect(nurseLegend.className).toContain('border-brand-300');
+    expect(caregiverLegend.className).toContain('border-brand-400');
   });
 });

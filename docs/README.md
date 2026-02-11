@@ -14,6 +14,8 @@ Este diretório documenta o planejamento e as decisões do "Sistema de Gestão A
 8. `docs/07-padroes-de-implementacao-next-supabase.md`
 9. `docs/08-auditoria-e-timeline.md`
 10. `docs/09-principios-de-design.md`
+11. `docs/10-identidade-visual.md`
+12. `docs/11-plano-execucao-redesign-interface.md`
 
 ## Princípios do produto
 

@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { DetailsSection } from '@/components/common/details-section/details-section';
 import { PageHeader } from '@/components/common/page-header/page-header';
 import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
+import { SegmentedControl } from '@/components/common/segmented-control/segmented-control';
 import { Badge } from '@/components/ui/badge/badge';
-import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
 import { Input } from '@/components/ui/input/input';
 
@@ -25,7 +25,6 @@ export default async function ShiftPage({
 
   const t = await getTranslations('pages.shift');
   const s = await getTranslations('pages.shift.sections');
-  const uiButtons = await getTranslations('ui.buttons');
   const uiFields = await getTranslations('ui.fields');
   const uiOptions = await getTranslations('ui.options');
   const samples = await getTranslations('ui.samples');
@@ -37,6 +36,20 @@ export default async function ShiftPage({
     { id: 'exemplo-3', name: samples('resident3') }
   ];
 
+  const roleOptions: Array<{ value: ShiftRole; label: string; href: string }> =
+    [
+      {
+        value: 'nurse',
+        label: bp('mode.nurse'),
+        href: '/shift?role=nurse'
+      },
+      {
+        value: 'caregiver',
+        label: bp('mode.caregiver'),
+        href: '/shift?role=caregiver'
+      }
+    ];
+
   return (
     <main>
       <PageHeader title={t('title')} subtitle={t('subtitle')} />
@@ -44,20 +57,17 @@ export default async function ShiftPage({
       <section className="space-y-3">
         <DetailsSection title={s('mode')} defaultOpen>
           <div className="space-y-3">
-            <div className="text-sm text-slate-800">
+            <div className="text-sm text-ink-muted">
               <strong>{bp('mode.label')}:</strong>{' '}
               {role === 'nurse'
                 ? uiOptions('roleNurse')
                 : uiOptions('roleCaregiver')}
             </div>
-            <div className="flex flex-wrap gap-2">
-              <Link href="/shift?role=nurse">
-                <Button type="button">{bp('mode.nurse')}</Button>
-              </Link>
-              <Link href="/shift?role=caregiver">
-                <Button type="button">{bp('mode.caregiver')}</Button>
-              </Link>
-            </div>
+            <SegmentedControl
+              ariaLabel={bp('mode.label')}
+              value={role}
+              options={roleOptions}
+            />
           </div>
         </DetailsSection>
 
@@ -81,7 +91,7 @@ export default async function ShiftPage({
                         : bp('residentList.selected')}
                     </Badge>
                   </div>
-                  <div className="grid gap-1 text-sm text-slate-800">
+                  <div className="grid gap-1 text-sm text-ink-muted">
                     <div>
                       <strong>{bp('summary.roomBed')}:</strong>{' '}
                       {samples('room101')} / {samples('bedA')}

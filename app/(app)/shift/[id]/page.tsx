@@ -5,6 +5,8 @@ import { DetailsSection } from '@/components/common/details-section/details-sect
 import { FormField } from '@/components/common/form-field/form-field';
 import { PageHeader } from '@/components/common/page-header/page-header';
 import { ResidentIdentity } from '@/components/common/resident-identity/resident-identity';
+import { SegmentedControl } from '@/components/common/segmented-control/segmented-control';
+import { ShiftMar } from '@/components/pages/shift-mar/shift-mar';
 import { Badge } from '@/components/ui/badge/badge';
 import { Button } from '@/components/ui/button/button';
 import { Card } from '@/components/ui/card/card';
@@ -52,6 +54,93 @@ export default async function ShiftResidentPage({
           ? samples('resident3')
           : id;
 
+  const roleOptions: Array<{ value: ShiftRole; label: string; href: string }> =
+    [
+      {
+        value: 'nurse',
+        label: bp('mode.nurse'),
+        href: `/shift/${id}?role=nurse`
+      },
+      {
+        value: 'caregiver',
+        label: bp('mode.caregiver'),
+        href: `/shift/${id}?role=caregiver`
+      }
+    ];
+
+  const marItems = [
+    {
+      id: '0800',
+      time: samples('time0800'),
+      medication: samples('med1'),
+      dose: bpRx('sampleDose'),
+      status: 'pending' as const
+    },
+    {
+      id: '1400',
+      time: samples('time1400'),
+      medication: samples('med1'),
+      dose: bpRx('sampleDose'),
+      status: 'notGiven' as const
+    },
+    {
+      id: '2000',
+      time: samples('time2000'),
+      medication: samples('med1'),
+      dose: bpRx('sampleDose'),
+      status: 'given' as const
+    }
+  ];
+
+  const marLabels = {
+    time: bp('mar.time'),
+    medication: bp('mar.med'),
+    dose: bp('mar.dose'),
+    status: uiFields('status'),
+    reason: bp('mar.reason'),
+    statuses: {
+      pending: bp('mar.statuses.pending'),
+      given: bp('mar.statuses.given'),
+      notGiven: bp('mar.statuses.notGiven')
+    },
+    actions: {
+      given: uiButtons('given'),
+      notGiven: uiButtons('notGiven'),
+      save: bp('mar.actions.saveChecks')
+    },
+    reasonSheet: {
+      title: bp('mar.reasonSheet.title'),
+      description: bp('mar.reasonSheet.description'),
+      reasonLabel: bp('mar.reasonSheet.reasonLabel'),
+      noteLabel: bp('mar.reasonSheet.noteLabel'),
+      confirm: bp('mar.reasonSheet.confirm'),
+      cancel: uiButtons('cancel')
+    },
+    toast: {
+      savedTitle: bp('mar.toast.savedTitle'),
+      savedDescription: bp('mar.toast.savedDescription')
+    }
+  };
+
+  const marReasonOptions = [
+    {
+      value: 'refusal',
+      label: bp('mar.reasonSheet.options.refusal')
+    },
+    {
+      value: 'stock',
+      label: bp('mar.reasonSheet.options.stock')
+    },
+    {
+      value: 'clinical',
+      label: bp('mar.reasonSheet.options.clinical')
+    },
+    {
+      value: 'other',
+      label: bp('mar.reasonSheet.options.other')
+    }
+  ];
+
   return (
     <main>
       <PageHeader
@@ -61,13 +150,13 @@ export default async function ShiftResidentPage({
 
       <section className="space-y-3">
         <Card className="space-y-2">
-          <div className="flex items-center justify-between gap-2">
+          <div className="flex flex-wrap items-center justify-between gap-2">
             <ResidentIdentity name={residentName} size="lg" />
-            <Badge variant="muted">
-              {role === 'nurse'
-                ? uiOptions('roleNurse')
-                : uiOptions('roleCaregiver')}
-            </Badge>
+            <SegmentedControl
+              ariaLabel={bp('mode.label')}
+              value={role}
+              options={roleOptions}
+            />
           </div>
           <div className="flex flex-wrap gap-2">
             <Link href={`/shift?role=${role}`}>
@@ -80,7 +169,7 @@ export default async function ShiftResidentPage({
         </Card>
 
         <DetailsSection title={s('residentSummary')} defaultOpen>
-          <div className="grid gap-2 text-sm text-slate-800 sm:grid-cols-2">
+          <div className="grid gap-2 text-sm text-ink-muted sm:grid-cols-2">
             <div>
               <strong>{bp('summary.roomBed')}:</strong> {samples('room101')} /{' '}
               {samples('bedA')}
@@ -108,66 +197,11 @@ export default async function ShiftResidentPage({
 
         <DetailsSection title={s('mar')} defaultOpen>
           <div className="grid gap-3">
-            {[
-              samples('time0800'),
-              samples('time1400'),
-              samples('time2000')
-            ].map((time, idx) => (
-              <Card key={time} className="space-y-2">
-                <input
-                  id={`mar-administration-${idx}`}
-                  type="checkbox"
-                  defaultChecked={idx === 2}
-                  aria-label={`${uiFields('status')} ${time}`}
-                  className="peer sr-only"
-                />
-                <div className="flex items-center justify-between gap-2">
-                  <strong className="transition-opacity duration-200 peer-checked:opacity-85 peer-checked:line-through">
-                    {bp('mar.time')}: {time}
-                  </strong>
-                  <div className="flex items-center gap-2">
-                    <Badge
-                      variant={
-                        idx === 0 ? 'danger' : idx === 1 ? 'muted' : 'success'
-                      }
-                    >
-                      {idx === 0
-                        ? bp('mar.statuses.pending')
-                        : idx === 1
-                          ? bp('mar.statuses.notGiven')
-                          : bp('mar.statuses.given')}
-                    </Badge>
-                    <label
-                      htmlFor={`mar-administration-${idx}`}
-                      className="inline-flex cursor-pointer items-center rounded-md border border-brand-200 bg-brand-50/60 p-1.5 transition-colors duration-200 hover:border-brand-300 hover:bg-brand-100/70 peer-focus-visible:ring-2 peer-focus-visible:ring-brand-300/80"
-                    >
-                      <span
-                        aria-hidden
-                        className="inline-flex h-5 w-5 items-center justify-center rounded-sm border border-brand-300 bg-canvas shadow-sm transition-colors duration-200 peer-checked:border-brand-700 peer-checked:bg-brand-600"
-                      >
-                        <span className="h-2.5 w-2.5 rounded-[2px] bg-brand-50 opacity-0 transition-opacity duration-200 peer-checked:opacity-100" />
-                      </span>
-                    </label>
-                  </div>
-                </div>
-                <div className="grid gap-2 text-sm text-slate-800 transition-opacity duration-200 peer-checked:opacity-85 peer-checked:line-through sm:grid-cols-3">
-                  <div>
-                    <strong>{bp('mar.med')}:</strong> {samples('med1')}
-                  </div>
-                  <div>
-                    <strong>{bp('mar.dose')}:</strong> {bpRx('sampleDose')}
-                  </div>
-                  <div>
-                    <strong>{uiFields('status')}:</strong>{' '}
-                    {idx === 0
-                      ? bp('mar.statuses.pending')
-                      : idx === 1
-                        ? bp('mar.statuses.notGiven')
-                        : bp('mar.statuses.given')}
-                  </div>
-                </div>
-              </Card>
-            ))}
+            <ShiftMar
+              items={marItems}
+              labels={marLabels}
+              reasonOptions={marReasonOptions}
+            />
 
             {isNurse ? (
               <div className="flex flex-wrap gap-2">
@@ -222,7 +256,7 @@ export default async function ShiftResidentPage({
               <strong>{samples('med1')}</strong>
               <Badge variant="muted">{samples('rxTimes')}</Badge>
             </div>
-            <div className="grid gap-1 text-sm text-slate-800">
+            <div className="grid gap-1 text-sm text-ink-muted">
               <div>
                 <strong>{bpRx('dose')}:</strong> {bpRx('sampleDose')}
               </div>

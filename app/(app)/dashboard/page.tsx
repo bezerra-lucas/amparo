@@ -70,7 +70,7 @@ export default async function DashboardPage() {
               <strong>{bpToday('shift.title')}</strong>
               <Badge variant="muted">{samples('time0800')}</Badge>
             </div>
-            <div className="grid gap-1 text-sm text-slate-800">
+            <div className="grid gap-1 text-sm text-ink-muted">
               <div>
                 <strong>{bpToday('shift.labels.shift')}:</strong>{' '}
                 {uiOptions('shiftDay')}
@@ -106,7 +106,7 @@ export default async function DashboardPage() {
                       {idx === 0 ? uiBadges('late') : uiBadges('info')}
                     </Badge>
                   </div>
-                  <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
+                  <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-2">
                     <div>
                       <strong>{bpToday('mar.labels.pending')}:</strong>{' '}
                       {idx === 0 ? 6 : 0}

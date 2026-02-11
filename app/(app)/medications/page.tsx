@@ -33,7 +33,7 @@ export default async function StockPage() {
                   {idx === 0 ? samples('qty6') : samples('qty12')}
                 </Badge>
               </div>
-              <div className="grid gap-1 text-sm text-slate-800">
+              <div className="grid gap-1 text-sm text-ink-muted">
                 <div>
                   <strong>{bp('catalog.min')}:</strong> {samples('qty6')}
                 </div>
@@ -49,7 +49,7 @@ export default async function StockPage() {
       <section className="space-y-3">
         <DetailsSection title={bp('stock.summary.title')} defaultOpen={false}>
           <Card className="space-y-2">
-            <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
+            <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-2">
               <div>
                 <strong>{bp('stock.summary.items')}:</strong> 24
               </div>
@@ -134,7 +134,7 @@ export default async function StockPage() {
                 <strong>{bp('movements.title')}</strong>
                 <Badge variant="muted">{bp('movements.type')}</Badge>
               </div>
-              <div className="grid gap-1 text-sm text-slate-800">
+              <div className="grid gap-1 text-sm text-ink-muted">
                 <div>
                   <strong>{bp('movements.qty')}:</strong>{' '}
                   {samples('movementIn')}
@@ -150,7 +150,7 @@ export default async function StockPage() {
                 <strong>{bp('movements.title')}</strong>
                 <Badge variant="muted">{bp('movements.type')}</Badge>
               </div>
-              <div className="grid gap-1 text-sm text-slate-800">
+              <div className="grid gap-1 text-sm text-ink-muted">
                 <div>
                   <strong>{bp('movements.qty')}:</strong>{' '}
                   {samples('movementOut')}

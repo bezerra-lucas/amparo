@@ -30,7 +30,7 @@
   "pages": {
     "dashboard": {
       "title": "Painel",
-      "subtitle": "Blueprint da tela de alertas e visão geral",
+      "subtitle": "Visão geral de alertas e indicadores operacionais",
       "sections": {
         "alerts": "Alertas",
         "today": "Hoje",
@@ -51,7 +51,7 @@
     },
     "residents": {
       "title": "Residentes",
-      "subtitle": "Blueprint da listagem de residentes",
+      "subtitle": "Listagem de residentes com filtros e ações rápidas",
       "sampleResident": "Abrir residente (exemplo)",
       "sections": {
         "filters": "Filtros",
@@ -61,7 +61,7 @@
     },
     "residentDetails": {
       "title": "Residente",
-      "subtitle": "Blueprint do detalhe do residente",
+      "subtitle": "Detalhes completos do residente",
       "backToResidents": "Voltar para Residentes",
       "tabs": {
         "admission": "Admissão",
@@ -74,7 +74,7 @@
     },
     "medications": {
       "title": "Estoque",
-      "subtitle": "Blueprint de estoque geral (inclui medicamentos)",
+      "subtitle": "Controle de estoque geral, incluindo medicamentos",
       "sections": {
         "catalog": "Catálogo",
         "stock": "Estoque",
@@ -83,7 +83,7 @@
     },
     "schedule": {
       "title": "Escala",
-      "subtitle": "Blueprint da escala por dia e turno",
+      "subtitle": "Escala da equipe por dia e turno",
       "sections": {
         "calendar": "Calendário",
         "dayNight": "Dia / Noite",
@@ -153,7 +153,7 @@
     },
     "adminUsers": {
       "title": "Usuários",
-      "subtitle": "Blueprint de gestão de acesso e papéis",
+      "subtitle": "Gestão de acesso e papéis de usuário",
       "sections": {
         "list": "Lista",
         "roles": "Papéis",
@@ -162,7 +162,7 @@
     },
     "adminAudit": {
       "title": "Auditoria",
-      "subtitle": "Blueprint da linha do tempo de alterações",
+      "subtitle": "Linha do tempo de alterações do sistema",
       "sections": {
         "filters": "Filtros",
         "timeline": "Linha do tempo"
@@ -170,7 +170,7 @@
     },
     "accessPending": {
       "title": "Acesso pendente",
-      "subtitle": "Blueprint para usuário autenticado sem permissão",
+      "subtitle": "Usuário autenticado sem permissão de acesso",
       "sections": {
         "status": "Status",
         "instructions": "Instruções"
@@ -182,7 +182,12 @@
     },
     "notFound": {
       "title": "Página não encontrada",
-      "subtitle": "Blueprint de erro 404"
+      "subtitle": "Não foi possível encontrar a página solicitada",
+      "emptyState": {
+        "title": "Nao encontramos esta pagina",
+        "description": "O link pode estar desatualizado ou indisponivel neste ambiente.",
+        "openDashboard": "Ir para o painel"
+      }
     }
   },
   "placeholders": {
@@ -569,14 +574,33 @@
         "time": "Horário",
         "med": "Medicação",
         "dose": "Dose",
+        "reason": "Motivo",
         "actions": {
           "editPrescription": "Editar prescrição",
-          "addPrescription": "Nova prescrição"
+          "addPrescription": "Nova prescrição",
+          "saveChecks": "Salvar checagens"
         },
         "statuses": {
           "pending": "Pendente",
           "given": "Administrado",
           "notGiven": "Não administrado"
+        },
+        "reasonSheet": {
+          "title": "Registrar motivo",
+          "description": "Escolha o motivo para marcar como não administrado.",
+          "reasonLabel": "Motivo principal",
+          "noteLabel": "Observação (opcional)",
+          "confirm": "Confirmar motivo",
+          "options": {
+            "refusal": "Recusa do residente",
+            "stock": "Medicação indisponível",
+            "clinical": "Orientação clínica",
+            "other": "Outro"
+          }
+        },
+        "toast": {
+          "savedTitle": "Checagens salvas",
+          "savedDescription": "O status das medicações deste turno foi atualizado."
         }
       },
       "report": {

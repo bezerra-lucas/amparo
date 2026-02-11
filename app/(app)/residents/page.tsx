@@ -59,7 +59,7 @@ export default async function ResidentsPage() {
                   {bpFilters(idx === 0 ? 'active' : 'inactive')}
                 </Badge>
               </div>
-              <div className="grid gap-1 text-sm text-slate-800">
+              <div className="grid gap-1 text-sm text-ink-muted">
                 <div>
                   <strong>{bpCard('room')}:</strong> {samples('room101')}
                 </div>

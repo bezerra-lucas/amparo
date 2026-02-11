@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { AppNav } from '@/components/common/app-nav/app-nav';
 
 describe('AppNav', () => {
@@ -11,21 +11,19 @@ describe('AppNav', () => {
     expect(screen.getByText('nav.residents')).toBeInTheDocument();
     expect(screen.getByText('nav.medications')).toBeInTheDocument();
     expect(screen.getByText('nav.schedule')).toBeInTheDocument();
+    expect(screen.getByText('nav.adminUsers')).toBeInTheDocument();
+    expect(screen.getByText('nav.adminAudit')).toBeInTheDocument();
   });
 
-  it('opens and closes the mobile sidebar', () => {
+  it('does not render mobile sidebar controls', () => {
     render(<AppNav />);
 
-    expect(screen.queryByText('common.menuTitle')).not.toBeInTheDocument();
-
-    fireEvent.click(screen.getByRole('button', { name: 'common.openNavMenu' }));
-
-    expect(screen.getByText('common.menuTitle')).toBeInTheDocument();
-
-    fireEvent.click(
-      screen.getByRole('button', { name: 'common.closeNavMenu' })
-    );
-
+    expect(
+      screen.queryByRole('button', { name: 'common.openNavMenu' })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'common.closeNavMenu' })
+    ).not.toBeInTheDocument();
     expect(screen.queryByText('common.menuTitle')).not.toBeInTheDocument();
   });
 });

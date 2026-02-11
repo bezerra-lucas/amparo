@@ -61,7 +61,7 @@ export default async function ResidentDetailsPage({
             <ResidentIdentity name={residentName} size="lg" />
             <Badge variant="success">{bpSummary('active')}</Badge>
           </div>
-          <div className="grid gap-1 text-sm text-slate-800">
+          <div className="grid gap-1 text-sm text-ink-muted">
             <div>
               <strong>{bpSummary('id')}:</strong> {id}
             </div>
@@ -199,7 +199,7 @@ export default async function ResidentDetailsPage({
                   <strong>{med}</strong>
                   <Badge variant="muted">{tabs('prescriptions')}</Badge>
                 </div>
-                <div className="grid gap-1 text-sm text-slate-800">
+                <div className="grid gap-1 text-sm text-ink-muted">
                   <div>
                     <strong>{bpRx('dose')}:</strong> {bpRx('sampleDose')}
                   </div>
@@ -228,7 +228,7 @@ export default async function ResidentDetailsPage({
                     <strong>{item}</strong>
                     <Badge variant="muted">{uiFields('status')}</Badge>
                   </div>
-                  <div className="grid gap-1 text-sm text-slate-800">
+                  <div className="grid gap-1 text-sm text-ink-muted">
                     <div>
                       <strong>{bpSupplies('balance')}:</strong>{' '}
                       {samples('qty12')}
@@ -266,7 +266,7 @@ export default async function ResidentDetailsPage({
                       {st}
                     </Badge>
                   </div>
-                  <div className="grid gap-1 text-sm text-slate-800">
+                  <div className="grid gap-1 text-sm text-ink-muted">
                     <div>
                       <strong>{bpBilling('due')}:</strong>{' '}
                       {samples('billingDue')}

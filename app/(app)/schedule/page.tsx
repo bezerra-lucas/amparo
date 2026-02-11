@@ -260,7 +260,7 @@ export default async function SchedulePage() {
                         : uiOptions('statusPaid')}
                     </Badge>
                   </div>
-                  <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-3">
+                  <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-3">
                     <div>
                       <strong>{bp('close.labels.totalShifts')}:</strong>{' '}
                       {idx === 0 ? 12 : 10}

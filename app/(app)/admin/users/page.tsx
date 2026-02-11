@@ -27,7 +27,7 @@ export default async function AdminUsersPage() {
               <strong>{bp('listTitle')}</strong>
               <Badge variant="muted">{bp('active')}</Badge>
             </div>
-            <div className="grid gap-1 text-sm text-slate-800">
+            <div className="grid gap-1 text-sm text-ink-muted">
               <div>
                 <strong>{bp('email')}:</strong> {samples('user1')}
               </div>

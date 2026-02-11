@@ -1,4 +1,5 @@
 import { AppNav } from '@/components/common/app-nav/app-nav';
+import { BottomNav } from '@/components/common/bottom-nav/bottom-nav';
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +19,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      <div className="mx-auto w-full max-w-6xl px-4">{children}</div>
+      <div className="mx-auto w-full max-w-6xl px-4 pb-24 sm:pb-0">
+        {children}
+      </div>
+
+      <BottomNav />
     </div>
   );
 }

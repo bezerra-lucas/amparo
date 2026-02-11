@@ -56,7 +56,7 @@ export default async function AdminAuditPage() {
               <strong>{bp('event')}</strong>
               <Badge variant="muted">{uiOptions('auditUpdate')}</Badge>
             </div>
-            <div className="grid gap-1 text-sm text-slate-800">
+            <div className="grid gap-1 text-sm text-ink-muted">
               <div>
                 <strong>{bp('actor')}:</strong> {samples('user1')}
               </div>
@@ -73,7 +73,7 @@ export default async function AdminAuditPage() {
               <strong>{bp('event')}</strong>
               <Badge variant="muted">{uiOptions('auditInsert')}</Badge>
             </div>
-            <div className="grid gap-1 text-sm text-slate-800">
+            <div className="grid gap-1 text-sm text-ink-muted">
               <div>
                 <strong>{bp('actor')}:</strong> {samples('user1')}
               </div>

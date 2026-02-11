@@ -146,7 +146,7 @@ export default async function FinancialPage() {
                 </Badge>
               </div>
 
-              <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
+              <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-2">
                 <div>
                   <strong>{bp('receivables.labels.competence')}:</strong>{' '}
                   {item.competence}
@@ -183,7 +183,7 @@ export default async function FinancialPage() {
                 </Badge>
               </div>
 
-              <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-2">
+              <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-2">
                 <div>
                   <strong>{bp('payroll.labels.period')}:</strong> {item.period}
                 </div>
@@ -207,7 +207,7 @@ export default async function FinancialPage() {
       <section>
         <h2>{s('actions')}</h2>
         <Card className="space-y-3">
-          <div className="grid gap-1 text-sm text-slate-800 sm:grid-cols-3">
+          <div className="grid gap-1 text-sm text-ink-muted sm:grid-cols-3">
             <div>
               <strong>{bp('totals.expected')}:</strong>{' '}
               {currencyFormatter.format(totalReceivables)}

@@ -28,10 +28,10 @@ type ScheduleLegendItem = {
 };
 
 const professionalTypeClasses: Record<ProfessionalType, string> = {
-  nurse: 'border-sky-300 bg-sky-50 text-sky-900',
-  caregiver: 'border-emerald-300 bg-emerald-50 text-emerald-900',
-  doctor: 'border-rose-300 bg-rose-50 text-rose-900',
-  physiotherapist: 'border-amber-300 bg-amber-50 text-amber-900'
+  nurse: 'border-brand-300 bg-brand-50/80 text-brand-900',
+  caregiver: 'border-brand-400 bg-brand-100/75 text-brand-900',
+  doctor: 'border-line-strong bg-surface-muted text-ink-strong',
+  physiotherapist: 'border-line bg-canvas text-ink-strong'
 };
 
 const HOUR_HEIGHT = 64;
@@ -76,7 +76,7 @@ export function ScheduleWeekView({
       <div className="space-y-2">
         <p>{helperText}</p>
         <div className="flex flex-wrap gap-2">
-          <span className="text-sm font-semibold text-slate-900">
+          <span className="text-sm font-semibold text-ink-strong">
             {labels.legend}
           </span>
           {legend.map((item) => (
@@ -93,35 +93,35 @@ export function ScheduleWeekView({
         </div>
       </div>
 
-      <div className="overflow-x-auto rounded border border-slate-200 bg-white">
+      <div className="overflow-x-auto rounded border border-line bg-surface">
         <div className="min-w-[980px]">
-          <div className="grid grid-cols-[80px_repeat(7,minmax(0,1fr))] border-b border-slate-200">
-            <div className="border-r border-slate-200 bg-slate-50" />
+          <div className="grid grid-cols-[80px_repeat(7,minmax(0,1fr))] border-b border-line/80">
+            <div className="border-r border-line/80 bg-surface-muted" />
             {days.map((day) => (
               <div
                 key={day.key}
-                className="border-r border-slate-200 bg-slate-50 px-3 py-2 text-center last:border-r-0"
+                className="border-r border-line/80 bg-surface-muted px-3 py-2 text-center last:border-r-0"
               >
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-sm font-semibold text-ink-strong">
                   {day.label}
                 </div>
-                <div className="text-xs text-slate-600">{day.dateLabel}</div>
+                <div className="text-xs text-ink-subtle">{day.dateLabel}</div>
               </div>
             ))}
           </div>
 
           <div className="grid grid-cols-[80px_repeat(7,minmax(0,1fr))]">
             <div
-              className="relative border-r border-slate-200 bg-slate-50"
+              className="relative border-r border-line/80 bg-surface-muted"
               style={{ height: timelineHeight }}
             >
               {hourMarks.map((hour, idx) => (
                 <div
                   key={hour}
-                  className="absolute left-0 right-0 border-t border-slate-200"
+                  className="absolute left-0 right-0 border-t border-line/70"
                   style={{ top: idx * HOUR_HEIGHT }}
                 >
-                  <span className="absolute left-2 top-0 -translate-y-1/2 text-xs text-slate-500">
+                  <span className="absolute left-2 top-0 -translate-y-1/2 text-xs text-ink-subtle">
                     {hour.toString().padStart(2, '0')}:00
                   </span>
                 </div>
@@ -139,13 +139,13 @@ export function ScheduleWeekView({
               return (
                 <div
                   key={day.key}
-                  className="relative border-r border-slate-200 last:border-r-0"
+                  className="relative border-r border-line/80 bg-canvas/20 last:border-r-0"
                   style={{ height: timelineHeight }}
                 >
                   {hourMarks.map((hour, idx) => (
                     <div
                       key={`${day.key}-${hour}`}
-                      className="absolute left-0 right-0 border-t border-slate-200"
+                      className="absolute left-0 right-0 border-t border-line/60"
                       style={{ top: idx * HOUR_HEIGHT }}
                     />
                   ))}

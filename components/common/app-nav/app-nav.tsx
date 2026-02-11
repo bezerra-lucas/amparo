@@ -2,16 +2,7 @@
 
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
-import { Button } from '@/components/ui/button/button';
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetTitle,
-  SheetTrigger
-} from '@/components/ui/sheet/sheet';
 import { cn } from '@/lib/cn';
 
 type NavIcon =
@@ -266,97 +257,24 @@ export function AppNav() {
   const a = useTranslations('app');
   const t = useTranslations('nav');
   const c = useTranslations('common');
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
 
   return (
-    <>
-      <div className="flex items-center justify-between gap-3">
-        <Link
-          href="/dashboard"
-          className="group inline-flex w-fit items-center gap-3 rounded-full border border-brand-200 bg-brand-50/70 px-3 py-1.5"
-        >
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-canvas shadow-panel">
-            <span className="h-3 w-3 rounded-full bg-brand-600 shadow-[0_0_0_6px_rgb(var(--brand-200)/0.45)] transition-transform duration-300 group-hover:scale-110" />
-          </span>
-          <span className="font-heading text-lg leading-none text-brand-800">
-            {a('name')}
-          </span>
-        </Link>
+    <div className="flex items-center justify-between gap-3">
+      <Link
+        href="/dashboard"
+        className="group inline-flex w-fit items-center gap-3 rounded-full border border-brand-200 bg-brand-50/70 px-3 py-1.5"
+      >
+        <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-canvas shadow-panel">
+          <span className="h-3 w-3 rounded-full bg-brand-600 shadow-[0_0_0_6px_rgb(var(--brand-200)/0.45)] transition-transform duration-300 group-hover:scale-110" />
+        </span>
+        <span className="font-heading text-lg leading-none text-brand-800">
+          {a('name')}
+        </span>
+      </Link>
 
-        <Sheet open={isMobileSidebarOpen} onOpenChange={setIsMobileSidebarOpen}>
-          <SheetTrigger asChild>
-            <Button
-              type="button"
-              variant="secondary"
-              aria-label={c('openNavMenu')}
-              className="h-10 w-10 rounded-xl p-0 shadow-panel sm:hidden"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                aria-hidden
-                className="h-5 w-5"
-              >
-                <path
-                  d="M4 7H20M4 12H20M4 17H20"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </Button>
-          </SheetTrigger>
-
-          <SheetContent
-            side="right"
-            className="w-80 max-w-[85vw] border-l border-line bg-canvas px-4 pb-6 pt-4 sm:hidden"
-          >
-            <div className="mb-4 flex items-center justify-between border-b border-line pb-3">
-              <SheetTitle className="font-heading text-lg text-ink">
-                {c('menuTitle')}
-              </SheetTitle>
-              <SheetDescription className="sr-only">
-                {c('mobileMenuDescription')}
-              </SheetDescription>
-
-              <Button
-                type="button"
-                variant="ghost"
-                aria-label={c('closeNavMenu')}
-                className="h-9 w-9 rounded-lg border border-line p-0 text-ink-muted hover:border-brand-300 hover:bg-brand-50/70 hover:text-brand-800"
-                onClick={() => setIsMobileSidebarOpen(false)}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  aria-hidden
-                  className="h-4 w-4"
-                >
-                  <path
-                    d="M6 6L18 18M18 6L6 18"
-                    stroke="currentColor"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              </Button>
-            </div>
-
-            <nav aria-label={c('appNavAriaLabel')}>
-              <NavLinksList
-                className="flex flex-col gap-2"
-                linkClassName="w-full justify-start rounded-2xl px-4 py-3 text-base"
-                onNavigate={() => setIsMobileSidebarOpen(false)}
-                t={t}
-              />
-            </nav>
-          </SheetContent>
-        </Sheet>
-
-        <nav aria-label={c('appNavAriaLabel')} className="hidden sm:block">
-          <NavLinksList className="flex flex-wrap gap-2" t={t} />
-        </nav>
-      </div>
-    </>
+      <nav aria-label={c('appNavAriaLabel')} className="hidden md:block">
+        <NavLinksList className="flex flex-wrap gap-2" t={t} />
+      </nav>
+    </div>
   );
 }
